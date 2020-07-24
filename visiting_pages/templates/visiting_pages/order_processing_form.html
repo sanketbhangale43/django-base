@@ -1,0 +1,74 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+
+<head>
+    <title>
+        page1
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <nav class="navbar sticky-top navbar-light" style="background-color:#a700a7;">
+        <img src="{% static 'dashboard_pages/images/return.svg' %}" style="width:2rem;height:2rem;"
+            id="navbar_back_icon">
+    </nav>
+    <div class="d-flex align-items-center justify-content-center" style="min-height: 100%; min-height: 100vh;">
+        <div class="container col-8 col-xs-12 col-4 col-md-8 col-lg-4 p-5 shadow"
+            style="border-radius:1rem;background-color: #FFFFFF;">
+            <h1 class="text-center" style="font-weight:normal;">order form</h1>
+            <form id="order_form" name="order_form" method="POST" action={% url 'signup_form_posting_api' %}>
+                {% csrf_token %}
+                {{ form }}
+                <div class="row mb-3  form-group">
+                    <input type="text" class="form-control pl-2 col-12" id="full_name_form_field"
+                        placeholder="full name">
+                </div>
+                <div class="row mb-3  form-group">
+                    <input type="text" class="form-control pl-2 col-12" id="care_of_form_field"
+                        placeholder="care of full name">
+                </div>
+                <div class="row mb-3  form-group">
+                    <textarea class="form-control pl-2 col-12" id="address_form_field" placeholder="address"></textarea>
+                </div>
+                <div class="row mb-3">
+
+                    <input type="text" class="form-control col-4" id="country_form_field" placeholder="country">
+
+                    <input type="text" class="form-control col-4" id="state_form_field" placeholder="state">
+
+                    <input type="text" class="form-control col-4" id="city_form_field" placeholder="city">
+                </div>
+                <div class="row mb-3  form-group">
+                    <input type="tel" class="form-control pl-2 col-12" id="mob_no_form_field" placeholder="mob_no">
+                </div>
+                <hr>
+                <div class="row mb-2 form-group justify-content-center">
+                    <button class="btn btn-success form-control col-11">done</button>
+                </div>
+                <div id="something_goes_wrong_alert_div" class="alert alert-danger d-none mt-3">
+                    <p class="text-center">something goes wrong</p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        var signup_form_filling_get_request_api_url = "{{signup_form_filling_get_request_api_url}}"
+        var product_id = "{{product_id}}"
+    </script>
+    <script src="{% static 'visiting_pages/javascript/order_processing_form.js' %}"></script>
+
+</body>
+
+</html>

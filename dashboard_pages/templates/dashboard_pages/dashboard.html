@@ -1,0 +1,207 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+
+<head>
+    <title>
+        Dashboard
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'dashboard_pages/css/dashboard.css' %}">
+</head>
+
+<body>
+    <div style="background-color: #24a4d8;">
+
+        <div class=" d-flex justify-content-end">
+            <button id="log_out_button" class=" btn btn-danger mt-2 mr-2">Log Out</button>
+        </div>
+        <p class="text-light text-center display-4">Welcome to Agricultural Assist</p>
+        <div class="d-flex justify-content-center align-items-center" style="min-height:30; min-height:30vh">
+            <p class="display-4 text-light">Hello <span id="user_name_value"></span>
+            </p>
+        </div>
+    </div>
+    <div class="container border shadow mt-3 mb-3">
+        <div class="">
+            <p class="display-4" style="font-size: 35px;">Aiming For Which Crop Search Here</p>
+            <div class="input-group mb-3">
+                <select id="crops_list" class="form-control ml-3">
+                    <option value="" disabled selected>Select your option</option>
+                </select>
+            </div>
+
+        </div>
+        <p class="text-success display-4 mt-3" style="font-size: 35px;">Steps Towards Successful Farming</p>
+        <div class="ml-3">
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size:1.5rem;"> Step 1: Crop Selection</h3>
+            </div>
+
+            <div class=" row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 2: Land Preparation</h3>
+            </div>
+
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 3: Seed Selection</h3>
+            </div>
+
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 4: Seed Sowing</h3>
+            </div>
+
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 5: Irrigation</h3>
+            </div>
+
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 6: Crop Growth</h3>
+            </div>
+
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 7: Fertilizing</h3>
+            </div>
+
+            <div class="row col-12 mb-3">
+                <h3 class="display-4" style="font-size: 1.5rem;"> Step 8: Harvesting</h3>
+            </div>
+
+        </div>
+        <div class="justify-content-center mb-1 d-none" id="go_button">
+            <button class="btn btn-success">
+                Go
+            </button>
+        </div>
+    </div>
+    <div class="container border shadow mt-3 mb-3">
+        <p class="display-4" style="font-size: 35px;">Continue your shopping</p>
+        <div class="row col-12 mb-3">
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/tractor.jpg' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"><span>Tractor</span></h5>
+                    <p class="card-text text-center display-4"><span id="product_value_0"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                        width:2rem;"></p>
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_0">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3 " id="buy_now_button_1" data="1">Buy Now</button>
+            </div>
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/sprayer.jpg' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">sprayer</h5>
+                    <p class="card-text text-center display-4"><span id="product_value_1"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                            width:2rem;"></p>
+
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_1">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3 " id="buy_now_button_2" data="2">Buy Now</button>
+
+            </div>
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/mower.jpg' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">mower</h5>
+                    <p class="card-text text-center display-4"><span id="product_value_2"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                        width:2rem;"></p>
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_2">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3 " id="buy_now_button_3" data="3">Buy Now</button>
+
+            </div>
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top mt-5" src="{% static 'visiting_pages/images/baler.jfif' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title mt-3">baler</h5>
+                    <p class="card-text text-center display-4"><span id="product_value_3"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                        width:2rem;"></p>
+
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_3">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3 " id="buy_now_button_4" data="4">Buy Now</button>
+            </div>
+        </div>
+        <div class="row col-12 mb-3">
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/compost1.jfif' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"><span>Vermi Compost</span></h5>
+                    <p class="card-text text-center display-4"><span id="product_value_4"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                        width:2rem;"></p>
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_4">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3 " id="buy_now_button_5" data="5">Buy Now</button>
+            </div>
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/compost2.jfif' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Seed Compost</h5>
+                    <p class="card-text text-center display-4"><span id="product_value_5"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                            width:2rem;"></p>
+
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_5">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3" id="buy_now_button_6" data="6">Buy Now</button>
+
+            </div>
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/compost3.jfif' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Bulb Compost</h5>
+                    <p class="card-text text-center display-4"><span id="product_value_6"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                        width:2rem;"></p>
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_6">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3" id="buy_now_button_7" data="7">Buy Now</button>
+
+            </div>
+            <div class="card shadow col-md-3 col-xs-3">
+                <img class="card-img-top" src="{% static 'visiting_pages/images/compost4.jfif' %}" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">Mushroom Compost</h5>
+                    <p class="card-text text-center display-4"><span id="product_value_7"></span><img
+                            src="{% static 'dashboard_pages/images/rupee.svg' %}" style="height:2rem;
+                        width:2rem;"></p>
+
+                </div>
+                <span class="text-danger text-center mb-2">Availability:<span id="products_available_7">
+                    </span> Units</span>
+                <button class="btn btn-primary mb-3" id="buy_now_button_8" data="8">Buy Now</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var dashboard_page_get_request_api_url = "{{ dashboard_page_get_request_api_url }}";
+        var user_id_value = "{{ user_id_value }}";
+        var log_out_api_url = "{{ log_out_api_url }}";
+    </script>
+    <script src="{% static 'dashboard_pages/javascript/dashboard.js' %}"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+{% load staticfiles %}
+
+<!doctype html>
+<html>
+
+<head>
+    <title>
+        signup Page
+    </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'visiting_pages/css/sign_up_page.css' %}">
+</head>
+
+<body background="{% static 'visiting_pages/images/signup.jpg' %}"
+    style="background-repeat: no-repeat;background-position: center;background-size: cover; height: 100%;">
+
+
+    <div class="d-flex justify-content-center align-items-center" style="min-height: 100%; min-height: 100vh;">
+        <div class="container col-9 col-md-9 col-lg-4 p-5 shadow" style="border-radius:2rem;background-color: #FFFFFF;">
+            <h1 class="text-center" style="font-weight:normal;">Register</h1>
+            <form id="sign_up_form" name="sign_up_form" method="POST" action={% url 'signup_form_api' %}>
+                {% csrf_token %}
+                {{ form }}
+                <label class=" mt-3" for="name_field">Full Name:</label>
+                <div class="row mb-3  form-group">
+                    <input type="text" class="form-control pl-2 col-4" id="first_name_field" placeholder="First Name">
+                    <input type="text" class="form-control pl-2 col-4" id="middle_name_field" placeholder="Middle Name">
+                    <input type="text" class="form-control pl-2 col-4" id="last_name_field" placeholder="Last Name">
+                </div>
+                <hr>
+                <label>Email:</label>
+                <div class="row mb-3  form-group">
+                    <input type="email" class="form-control pl-2 col-12" id="email_field" placeholder="xyz@gmail.com">
+                </div>
+                <label>Address:</label>
+                <div class="row mb-3  form-group">
+                    <textarea class="form-control pl-2 col-12" id="address" placeholder="address"></textarea>
+                </div>
+                <hr>
+                <label>Country & State:</label>
+                <div class="row mb-3  form-group">
+                    <input type="text" class="form-control col-6" id="country_field" value="India">
+                    <select id="select_list" class="col-6">
+                        <option>Maharashtra</option>
+                    </select>
+                </div>
+                <hr>
+                <label>Username:</label>
+                <div class="row mb-3  form-group">
+                    <input type="text" class="form-control pl-2 col-12" id="username_field" placeholder="Set Username">
+                </div>
+                <hr>
+                <label>Password :</label>
+                <div class="row mb-3  form-group">
+                    <input type="password" class="form-control col-6" id="password_field" placeholder="Set Password">
+                    <input type="password" class="form-control col-6" id="confirm_password_field"
+                        placeholder="Confirm Password">
+                </div>
+                <hr>
+                <label>Phone Number:</label>
+                <div class="row mb-3  form-group">
+                    <input type="tel" class="form-control" id="telephone_field" placeholder="mobile Number">
+                </div>
+                <hr>
+                <div class="row mb-3  form-group d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary col-10" id="signup_button">Sign In</button>
+                </div>
+                <div class="row justify-content-center">
+                    <label><a href="/login_page">Already have an account ? Login</a></label>
+                    <label class="ml-3"><a href="/page1/">Home</a></label>
+
+                </div>
+                <div id="Account_successfully_created_alert_div" class="alert alert-success d-none">
+                    <p class="text-center">Account successfully created</p>
+                </div>
+                <div id="Account_already_exists_alert_div" class="alert alert-danger d-none">
+                    <p class="text-center">Account already exists change username and email</p>
+                </div>
+                <div id="something_goes_wrong_alert_div" class="alert alert-danger d-none">
+                    <p class="text-center">something goes wrong</p>
+                </div>
+                <div id="Invalid_request_alert_div" class="alert alert-danger d-none">
+                    <p class="text-center">Invalid request</p>
+                </div>
+                <div id="confirm_password_alert_div" class="alert alert-danger d-none">
+                    <p class="text-center">confirm password is not matched</p>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'visiting_pages/javascript/sign_up_page.js' %}"></script>
+</body>
+
+</html>
